@@ -1,12 +1,5 @@
 class Role
-  extend ActiveModel::Naming
-  include ActiveModel::AttributeMethods
-  include ActiveRecord::AttributeMethods::PrimaryKey
-  include ActiveRecord::AttributeMethods::PrimaryKey::ClassMethods
-    set_primary_key :name
-  def persisted?
-    true
-  end
+  extend ActiveModel::Naming  # needed to render form in edit view
 
   attr_accessor :name
   @@all_roles = {}

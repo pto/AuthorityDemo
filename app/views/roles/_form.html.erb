@@ -1,7 +1,6 @@
-<%= form_for(@role) do |f| %>
+<%= form_tag update_role_path(@role.name), :method => :put do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.hidden_field :name %>
+    <%= label_tag 'name' %>:
     <%= @role.name %>
   </div>
 
@@ -14,6 +13,6 @@
   <% end %>
  
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag 'Update Role' %>
   </div>
 <% end %>

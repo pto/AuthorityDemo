@@ -32,8 +32,7 @@ class RolesController < ApplicationController
   # PUT /roles/Admin
   # PUT /roles/Admin.xml
   def update
-    @role = Role.find_by_name(params[:role][:name])
-    @all_authorities = Authority.all  # needed?
+    @role = Role.find_by_name(params[:name])
 
     respond_to do |format|
       @role.authorities = Authority.find_by_name(params[:authority_names])
