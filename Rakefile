@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-ClientApp::Application.load_tasks
+AuthorityDemo::Application.load_tasks

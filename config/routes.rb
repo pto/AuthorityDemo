@@ -1,4 +1,4 @@
-ClientApp::Application.routes.draw do
+AuthorityDemo::Application.routes.draw do
 
   # Roles is responsible for updating AuthorityRoles. These routes
   # imitate that part of "resource :roles" that we allow, substituting
