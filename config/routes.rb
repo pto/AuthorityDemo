@@ -1,8 +1,6 @@
 ClientApp::Application.routes.draw do
-  resources :authority_roles
 
-  resources :authorities
-
+  # Roles is responsible for updating AuthorityRoles
   get '/roles' => 'roles#index'
   get '/roles/:name/edit' => 'roles#edit', :as => 'edit_role'
   get '/roles/:name' => 'roles#show', :as => 'role'
@@ -57,7 +55,7 @@ ClientApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "roles#index"
 
   # See how all your routes lay out with "rake routes"
 
