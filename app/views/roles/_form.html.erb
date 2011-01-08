@@ -1,3 +1,6 @@
+<% # This uses form_tag instead of form_for, because the latter requires
+   # too much extra baggage in Role %>
+
 <%= form_tag update_role_path(@role.name), :method => :put do |f| %>
   <div class="field">
     <%= label_tag 'name' %>:

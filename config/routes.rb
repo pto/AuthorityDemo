@@ -1,6 +1,8 @@
 ClientApp::Application.routes.draw do
 
-  # Roles is responsible for updating AuthorityRoles
+  # Roles is responsible for updating AuthorityRoles. These routes
+  # imitate that part of "resource :roles" that we allow, substituting
+  # name for id.
   get '/roles' => 'roles#index'
   get '/roles/:name/edit' => 'roles#edit', :as => 'edit_role'
   get '/roles/:name' => 'roles#show', :as => 'role'

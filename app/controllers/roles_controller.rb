@@ -15,7 +15,6 @@ class RolesController < ApplicationController
   def show
     @role = Role.find_by_name(params[:name])
     @role_authorities = @role.authorities
-    @all_authorities = Authority.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -31,6 +30,8 @@ class RolesController < ApplicationController
 
   # PUT /roles/Admin
   # PUT /roles/Admin.xml
+  # This only updates AuthorityRole, not Role. It always succeeds (or at
+  # least it fails silently).
   def update
     @role = Role.find_by_name(params[:name])
 

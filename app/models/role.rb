@@ -2,25 +2,29 @@ class Role
   extend ActiveModel::Naming  # needed to render form in edit view
 
   attr_accessor :name
-  @@all_roles = {}
+  @@all = {}
 
+  # This is used by belongs_to in AuthorityRoles, as well as its use
+  # in RolesController
   def self.find_by_name(name, conditions=nil)
-    @@all_roles[name]
+    @@all[name]
   end
 
   def self.all
-    @@all_roles.values
+    @@all.values
   end
 
   def initialize(name)
     @name = name
-    @@all_roles[name] = self
+    @@all[name] = self
   end
 
   def authorities
     AuthorityRole.where(:role_name => self.name).collect {|ar| ar.authority}
   end
 
+  # Imitates has_many :authorities, :through => :authority_roles, which
+  # can't be done easily since this is not an ActiveRecord class
   def authorities=(authorities)
     AuthorityRole.delete_all(:role_name => self.name)
     if authorities
