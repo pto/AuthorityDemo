@@ -11,13 +11,10 @@
 <% @roles.each do |role| %>
   <tr>
     <td><%= role.name %></td>
-    <td><%= link_to 'Show', role %></td>
-    <td><%= link_to 'Edit', edit_role_path(role) %></td>
-    <td><%= link_to 'Destroy', role, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', role_path(role.name) %></td>
+    <td><%= link_to 'Edit', edit_role_path(role.name) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Role', new_role_path %>

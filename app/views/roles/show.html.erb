@@ -5,6 +5,10 @@
   <%= @role.name %>
 </p>
 
+<p>
+  <b>Role Authorities:</b>
+  <%= @role_authorities.collect {|a| a.name }.join(', ') %>
+</p>
 
-<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Edit', edit_role_path(@role.name) %> |
 <%= link_to 'Back', roles_path %>

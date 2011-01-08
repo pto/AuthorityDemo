@@ -1,7 +1,12 @@
 ClientApp::Application.routes.draw do
+  resources :authority_roles
+
   resources :authorities
 
-  resources :roles
+  get '/roles' => 'roles#index'
+  get '/roles/:name/edit' => 'roles#edit', :as => 'edit_role'
+  get '/roles/:name' => 'roles#show', :as => 'role'
+  put '/roles/:name' => 'roles#update'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,20 +1,18 @@
 <%= form_for(@role) do |f| %>
-  <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
-
-      <ul>
-      <% @role.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.hidden_field :name %>
+    <%= @role.name %>
   </div>
+
+  <% for authority in @all_authorities %>
+    <div class="field">
+      <%= check_box_tag "authority_names[]", authority.name,
+                        checked = @role.authorities.include?(authority) %>
+      <%= label_tag authority.name %>
+    </div>
+  <% end %>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
